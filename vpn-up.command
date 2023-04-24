@@ -466,7 +466,7 @@ function is_network_available() {
 }
 
 function is_vpn_running() {
-    test -f $PID_FILE_PATH && return 0
+    test -f "${PID_FILE_PATH}" && return 0
 }
 
 function print_current_ip_address() {
