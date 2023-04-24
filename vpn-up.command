@@ -88,7 +88,7 @@ function start() {
             printf "%s" "${RESET}"
             return
         else
-            echo sudo -S <<<$SUDO_PASSWORD
+            cat sudo -S <<<"${SUDO_PASSWORD}"
             printf "%s" "${WARNING}"
             printf "Running as root ...\n"
             printf "%s" "${RESET}"
