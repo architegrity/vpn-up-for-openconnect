@@ -438,8 +438,9 @@ function stop() {
         printf "%s" "${WARNING}"
         printf "Connected ...\nRemoving %s ...\n" "${PID_FILE_PATH}"
         printf "%s" "${RESET}"
-        local pid=$(cat $PID_FILE_PATH)
-        kill -9 $pid >/dev/null 2>&1
+        local pid
+        pid=$(cat "${PID_FILE_PATH}")
+        kill -9 "${pid}" >/dev/null 2>&1
         rm -f "${PID_FILE_PATH}" >/dev/null 2>&1
         printf "%s" "${SUCCESS}"
         printf "Disconnected ...\n"
