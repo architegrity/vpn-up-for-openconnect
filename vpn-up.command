@@ -470,7 +470,8 @@ function is_vpn_running() {
 }
 
 function print_current_ip_address() {
-    local ip=$(dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com)
+    local ip
+    ip=$(dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com)
     printf "Your IP address is %s ...\n" "${ip}"
 }
 
