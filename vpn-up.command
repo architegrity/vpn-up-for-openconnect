@@ -249,12 +249,12 @@ function connect() {
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with less output (quiet) ...\n" "${VPN_NAME}"
                     printf "%s" "${RESET}"
-                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" --background -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" --background -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 else
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with detailed output ...\n" "${VPN_NAME}"
                     printf "%s" "${RESET}"
-                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" --background "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" --background "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 fi
             else
                 printf "%s" "${PRIMARY}"
@@ -264,12 +264,12 @@ function connect() {
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with less output (quiet) ...\n" "${VPN_NAME}"
                     printf "%s" "${RESET}"
-                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 else
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with detailed output ...\n" "${VPN_NAME}"
                     printf "%s" "${RESET}"
-                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 fi
             fi
         else
@@ -284,12 +284,12 @@ function connect() {
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with less output (quiet) ...\n" "${VPN_NAME}"
                     printf "%s" "${RESET}"
-                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" --background -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" --background -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 else
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with detailed output ...\n" "${VPN_NAME}"
                     printf "%s" "${RESET}"
-                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" --background "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" --background "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 fi
             else
                 printf "%s" "${PRIMARY}"
@@ -299,12 +299,12 @@ function connect() {
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with less output (quiet) ...\n" "${VPN_NAME}"
                     printf "%s" "${RESET}"
-                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 else
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with detailed output ...\n" "${VPN_NAME}"
                     printf "%s" "${RESET}"
-                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    echo $VPN_PASSWD | sudo openconnect --protocol="${PROTOCOL}" "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 fi
             fi
         fi
@@ -329,7 +329,7 @@ function connect() {
                         echo $VPN_PASSWD
                         sleep 1
                         echo $VPN_DUO2FAMETHOD
-                    } | sudo openconnect --protocol="${PROTOCOL}" --background -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    } | sudo openconnect --protocol="${PROTOCOL}" --background -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 else
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with detailed output ...\n" "${VPN_NAME}"
@@ -338,7 +338,7 @@ function connect() {
                         echo $VPN_PASSWD
                         sleep 1
                         echo $VPN_DUO2FAMETHOD
-                    } | sudo openconnect --protocol="${PROTOCOL}" --background "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    } | sudo openconnect --protocol="${PROTOCOL}" --background "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 fi
             else
                 printf "%s" "${PRIMARY}"
@@ -352,7 +352,7 @@ function connect() {
                         echo $VPN_PASSWD
                         sleep 1
                         echo $VPN_DUO2FAMETHOD
-                    } | sudo openconnect --protocol="${PROTOCOL}" -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    } | sudo openconnect --protocol="${PROTOCOL}" -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 else
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with detailed output ...\n" "${VPN_NAME}"
@@ -361,7 +361,7 @@ function connect() {
                         echo $VPN_PASSWD
                         sleep 1
                         echo $VPN_DUO2FAMETHOD
-                    } | sudo openconnect --protocol="${PROTOCOL}" "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    } | sudo openconnect --protocol="${PROTOCOL}" "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 fi
             fi
         else
@@ -380,7 +380,7 @@ function connect() {
                         echo $VPN_PASSWD
                         sleep 1
                         echo $VPN_DUO2FAMETHOD
-                    } | sudo openconnect --protocol="${PROTOCOL}" --background -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    } | sudo openconnect --protocol="${PROTOCOL}" --background -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 else
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with detailed output ...\n" "${VPN_NAME}"
@@ -389,7 +389,7 @@ function connect() {
                         echo $VPN_PASSWD
                         sleep 1
                         echo $VPN_DUO2FAMETHOD
-                    } | sudo openconnect --protocol="${PROTOCOL}" --background "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    } | sudo openconnect --protocol="${PROTOCOL}" --background "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 fi
             else
                 printf "%s" "${PRIMARY}"
@@ -403,7 +403,7 @@ function connect() {
                         echo $VPN_PASSWD
                         sleep 1
                         echo $VPN_DUO2FAMETHOD
-                    } | sudo openconnect --protocol="${PROTOCOL}" -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    } | sudo openconnect --protocol="${PROTOCOL}" -q "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 else
                     printf "%s" "${PRIMARY}"
                     printf "Running the %s with detailed output ...\n" "${VPN_NAME}"
@@ -412,7 +412,7 @@ function connect() {
                         echo $VPN_PASSWD
                         sleep 1
                         echo $VPN_DUO2FAMETHOD
-                    } | sudo openconnect --protocol="${PROTOCOL}" "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" >"${LOG_FILE_PATH}" 2>&1
+                    } | sudo openconnect --protocol="${PROTOCOL}" "${VPN_HOST}" --user="${VPN_USER}" --authgroup="${VPN_GROUP}" --passwd-on-stdin --servercert="${SERVER_CERTIFICATE}" --pid-file "${PID_FILE_PATH}" | sudo tee "${LOG_FILE_PATH}" 2>&1
                 fi
             fi
         fi
